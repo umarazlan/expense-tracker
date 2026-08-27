@@ -1,0 +1,654 @@
+.home-section {
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(255, 193, 7, 0.12),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 10% 80%,
+      rgba(13, 110, 253, 0.08),
+      transparent 30%
+    ),
+    #f8f9fa;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Background orbs */
+
+.home-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+.orb-one {
+  width: 250px;
+  height: 250px;
+  background: rgba(255, 193, 7, 0.12);
+  top: 10%;
+  right: 5%;
+}
+
+.orb-two {
+  width: 200px;
+  height: 200px;
+  background: rgba(13, 110, 253, 0.08);
+  bottom: 5%;
+  left: 5%;
+}
+
+/* Badge */
+
+.home-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 50px;
+  background: rgba(255, 193, 7, 0.12);
+  border: 1px solid rgba(255, 193, 7, 0.25);
+  color: #9a7200;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+
+/* Heading */
+
+.home-title {
+  font-size: clamp(3rem, 6vw, 5.3rem);
+  line-height: 1.02;
+  font-weight: 800;
+  letter-spacing: -3px;
+  color: #161a1d;
+  max-width: 650px;
+  margin-bottom: 25px;
+}
+
+.home-title span {
+  display: block;
+  background: linear-gradient(90deg, #ffc107, #ff9f00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Description */
+
+.home-description {
+  max-width: 580px;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #6c757d;
+  margin-bottom: 35px;
+}
+
+/* Buttons */
+
+.home-buttons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 40px;
+}
+
+.home-primary-btn {
+  background: #212529;
+  color: white;
+  padding: 13px 24px;
+  border-radius: 10px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.home-primary-btn:hover {
+  background: #212529;
+  color: white;
+}
+
+.home-secondary-btn {
+  background: white;
+  border: 1px solid #dee2e6;
+  color: #212529;
+  padding: 13px 28px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.home-secondary-btn:hover {
+  background: #f1f3f5;
+}
+
+/* Features */
+
+.home-features {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #495057;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.feature-item svg {
+  color: #ffc107;
+  font-size: 18px;
+}
+
+/* Dashboard Preview */
+
+.dashboard-preview {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  min-height: 520px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Main expense card */
+
+.expense-card {
+  width: 420px;
+  padding: 30px;
+  border-radius: 25px;
+  background: rgba(33, 37, 41, 0.96);
+  color: white;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 2;
+}
+
+.card-header-custom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-header-custom p {
+  margin: 0 0 5px;
+  color: #adb5bd;
+  font-size: 14px;
+}
+
+.card-header-custom h2 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.wallet-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffc107;
+  color: #212529;
+  font-size: 22px;
+}
+
+/* Chart */
+
+.balance-chart {
+  height: 180px;
+  margin: 35px 0 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.chart-line {
+  position: absolute;
+  width: 120%;
+  height: 120px;
+  left: -10%;
+  top: 30px;
+  border-top: 3px solid #ffc107;
+  border-radius: 50%;
+  transform: rotate(-8deg);
+  box-shadow: 0 -8px 25px rgba(255, 193, 7, 0.15);
+}
+
+.chart-point {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #ffc107;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(255, 193, 7, 0.5);
+}
+
+.point-one {
+  left: 15%;
+  top: 110px;
+}
+
+.point-two {
+  left: 38%;
+  top: 80px;
+}
+
+.point-three {
+  left: 65%;
+  top: 100px;
+}
+
+.point-four {
+  right: 8%;
+  top: 50px;
+}
+
+/* Card footer */
+
+.card-footer-custom {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+}
+
+.card-footer-custom small {
+  display: block;
+  color: #adb5bd;
+  margin-bottom: 5px;
+}
+
+.card-footer-custom strong {
+  font-size: 17px;
+}
+
+/* Floating cards */
+
+.floating-card {
+  position: absolute;
+  background: white;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+  z-index: 3;
+}
+
+.floating-card small {
+  color: #868e96;
+  font-size: 11px;
+}
+
+.floating-card h4 {
+  margin: 3px 0 0;
+  font-size: 18px;
+  color: #212529;
+}
+
+.floating-icon,
+.saving-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.floating-icon {
+  background: #fff3cd;
+  color: #997404;
+}
+
+.saving-icon {
+  background: #d1e7dd;
+  color: #146c43;
+}
+
+.expense-floating {
+  top: 70px;
+  right: -10px;
+}
+
+.saving-floating {
+  bottom: 75px;
+  left: -20px;
+}
+
+/* Responsive */
+
+@media (max-width: 991px) {
+  .home-section {
+    text-align: center;
+  }
+
+  .home-title {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .home-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .home-buttons,
+  .home-features {
+    justify-content: center;
+  }
+
+  .dashboard-preview {
+    margin-top: 50px;
+  }
+}
+
+/* @media (max-width: 576px) {
+  .home-title {
+    font-size: 3rem;
+    letter-spacing: -2px;
+  }
+
+  .home-description {
+    font-size: 16px;
+  }
+
+  .expense-card {
+    width: 90%;
+    padding: 22px;
+  }
+
+  .card-header-custom h2 {
+    font-size: 25px;
+  }
+
+  .floating-card {
+    transform: scale(0.85);
+  }
+
+  .expense-floating {
+    right: -5px;
+  }
+
+  .saving-floating {
+    left: -5px;
+  }
+
+  .dashboard-preview {
+    min-height: 450px;
+  }
+} */
+
+
+/* =================================
+   HOME RESPONSIVE
+================================= */
+
+@media (max-width: 1199px) {
+
+  .home-title {
+    font-size: 4.5rem;
+  }
+
+  .expense-card {
+    width: 390px;
+  }
+
+  .expense-floating {
+    right: 0;
+  }
+
+  .saving-floating {
+    left: 0;
+  }
+}
+
+
+/* =================================
+   TABLET
+================================= */
+@media (max-width: 991px) {
+
+  .home-section {
+    padding-top: 50px;
+  }
+
+  .home-title {
+    font-size: clamp(3.3rem, 8vw, 4.5rem);
+    letter-spacing: -2px;
+  }
+
+  .home-description {
+    font-size: 17px;
+  }
+
+  .home-buttons {
+    justify-content: center;
+  }
+
+  .home-features {
+    justify-content: center;
+  }
+  .dashboard-preview {
+    margin-top: 50px;
+    min-height: 500px;
+    max-width: 600px;
+  }
+
+  .expense-card {
+    width: min(420px, 85%);
+  }
+
+}
+
+/* =================================
+   MOBILE
+================================= */
+@media (max-width: 767px) {
+  .home-section {
+    min-height: auto;
+    padding-top: 80px;
+    padding-bottom: 50px;
+    text-align: center;
+  }
+
+
+  .home-title {
+    font-size: clamp(2.7rem, 12vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
+  }
+
+
+  .home-description {
+    font-size: 16px;
+    line-height: 1.7;
+    padding: 0 10px;
+    margin-bottom: 28px;
+  }
+
+
+  .home-badge {
+    font-size: 12px;
+    padding: 7px 12px;
+    margin-bottom: 20px;
+  }
+
+
+  /* Buttons */
+
+  .home-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    width: min(100%, 340px);
+    margin-left: auto;
+    margin-right: auto;
+    gap: 10px;
+  }
+
+  .home-primary-btn,
+  .home-secondary-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 13px 20px;
+  }
+
+  /* Features */
+  .home-features {
+    gap: 15px;
+    margin-top: 25px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Dashboard */
+  .dashboard-preview {
+    width: 100%;
+    min-height: 430px;
+    margin-top: 35px;
+    transform: scale(0.95);
+  }
+
+  .expense-card {
+    width: min(92%, 400px);
+    padding: 22px;
+    border-radius: 20px;
+  }
+
+  .card-header-custom h2 {
+    font-size: 26px;
+  }
+
+  .balance-chart {
+    height: 140px;
+    margin: 25px 0 15px;
+  }
+
+  .card-footer-custom {
+    gap: 20px;
+  }
+
+  .card-footer-custom small {
+    font-size: 10px;
+  }
+
+  .card-footer-custom strong {
+    font-size: 15px;
+  }
+
+  /* Floating cards */
+  .floating-card {
+    padding: 11px;
+    border-radius: 12px;
+    gap: 8px;
+  }
+
+  .floating-card h4 {
+    font-size: 14px;
+  }
+
+  .floating-card small {
+    font-size: 9px;
+  }
+
+  .floating-icon,
+  .saving-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    font-size: 15px;
+  }
+
+  .expense-floating {
+    top: 25px;
+    right: 0;
+  }
+
+  .saving-floating {
+    bottom: 30px;
+    left: 0;
+  }
+}
+
+
+/* =================================
+   SMALL PHONES
+================================= */
+
+@media (max-width: 480px) {
+  .home-section {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .home-title {
+    font-size: 2.6rem;
+    letter-spacing: -1.5px;
+  }
+
+  .home-description {
+    font-size: 15px;
+  }
+
+  .dashboard-preview {
+    min-height: 380px;
+    transform: scale(0.9);
+  }
+
+  .expense-card {
+    width: 94%;
+    padding: 18px;
+  }
+
+  .card-header-custom h2 {
+    font-size: 23px;
+  }
+
+  .wallet-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 18px;
+  }
+
+  .expense-floating {
+    right: -5px;
+  }
+
+  .saving-floating {
+    left: -5px;
+  }
+
+}
+
+
+/* =================================
+   VERY SMALL PHONES
+================================= */
+
+@media (max-width: 360px) {
+
+  .home-title {
+    font-size: 2.3rem;
+  }
+
+  .dashboard-preview {
+    transform: scale(0.82);
+    margin-left: -9%;
+    width: 118%;
+  }
+  .home-features {
+    font-size: 13px;
+  }
+
+}

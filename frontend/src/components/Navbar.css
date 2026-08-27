@@ -1,0 +1,167 @@
+/* =================================
+   NAVBAR — matches home/footer theme
+   Palette: dark bg #212529, amber #ffc107
+================================= */
+
+.app-navbar {
+  background: #212529 !important;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.12);
+}
+
+.app-navbar .navbar-brand {
+  font-size: 20px;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+}
+
+.app-navbar .navbar-brand svg {
+  color: #ffc107;
+  font-size: 20px;
+}
+
+/* Nav links */
+.app-nav-link {
+  display: flex;
+  align-items: center;
+  padding: 10px 14px !important;
+  border-radius: 8px;
+  color: #e9ecef !important;
+  transition: background 0.2s, color 0.2s;
+}
+
+.app-nav-link svg {
+  color: #adb5bd;
+  transition: color 0.2s;
+}
+
+.app-nav-link:hover,
+.app-nav-link:focus-visible {
+  color: #ffc107 !important;
+  background: rgba(255, 193, 7, 0.08);
+}
+
+.app-nav-link:hover svg,
+.app-nav-link:focus-visible svg {
+  color: #ffc107;
+}
+
+.app-nav-link.active {
+  color: #ffc107 !important;
+  background: rgba(255, 193, 7, 0.12);
+}
+
+.app-nav-link.active svg {
+  color: #ffc107;
+}
+
+/* Logout button */
+.app-logout-btn {
+  display: flex;
+  align-items: center;
+  border-radius: 8px;
+}
+
+/* Custom toggler (three-line burger, amber on hover) */
+.app-navbar .navbar-toggler {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+
+.app-navbar .navbar-toggler:focus {
+  box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.25);
+}
+
+.app-toggler-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 20px;
+}
+
+.app-toggler-icon span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: #f8f9fa;
+  border-radius: 2px;
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+.app-navbar .navbar-toggler:not(.collapsed) .app-toggler-icon span:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.app-navbar .navbar-toggler:not(.collapsed) .app-toggler-icon span:nth-child(2) {
+  opacity: 0;
+}
+
+.app-navbar .navbar-toggler:not(.collapsed) .app-toggler-icon span:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+
+/* =================================
+   TABLET / MOBILE  (≤ 991px)
+   Bootstrap's navbar-expand-lg collapses
+   here by default — this styles that
+   collapsed panel.
+================================= */
+@media (max-width: 991px) {
+  .app-navbar .navbar-collapse {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .app-navbar .navbar-nav {
+    width: 100%;
+    gap: 4px;
+  }
+
+  .app-nav-link {
+    width: 100%;
+    padding: 12px 14px !important;
+  }
+
+  .app-logout-item {
+    margin-top: 8px;
+    width: 100%;
+  }
+
+  .app-logout-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 10px 14px;
+  }
+}
+
+
+/* =================================
+   SMALL PHONES  (≤ 480px)
+================================= */
+@media (max-width: 480px) {
+  .app-navbar {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .app-navbar .navbar-brand {
+    font-size: 17px;
+  }
+
+  .app-nav-link {
+    font-size: 14px;
+  }
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .app-nav-link,
+  .app-toggler-icon span {
+    transition: none;
+  }
+}
