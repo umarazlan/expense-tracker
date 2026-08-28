@@ -17,6 +17,7 @@ const SignUp = () => {
     FullName: "",
     Email: "",
     Password: "",
+    ConfirmPassword: "",
   });
 
   const handleChange = (e) => {
@@ -31,19 +32,33 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Password length validation
     if (formData.Password.length < 8) {
       toast.error("Password must be at least 8 characters long.");
       return;
     }
 
+    // Password matching validation
+    if (formData.Password !== formData.ConfirmPassword) {
+      toast.error("Passwords do not match.");
+      return;
+    }
+
     try {
-      const response = await fetch("https://your-django-backend.onrender.com/api/signup/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "http://127.0.0.1:8000/api/signup/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            FullName: formData.FullName,
+            Email: formData.Email,
+            Password: formData.Password,
+          }),
+        }
+      );
 
       const data = await response.json();
 
@@ -56,6 +71,7 @@ const SignUp = () => {
           FullName: "",
           Email: "",
           Password: "",
+          ConfirmPassword: "",
         });
 
         setTimeout(() => {
@@ -171,6 +187,49 @@ const SignUp = () => {
                       required
                     />
                   </div>
+                </div>
+
+                {/* Confirm Password */}
+                <div className="auth-input-wrapper">
+                  <label>Confirm Password</label>
+
+                  <div
+                    className={`auth-input-group ${
+                      formData.ConfirmPassword &&
+                      (formData.Password === formData.ConfirmPassword
+                        ? "password-match"
+                        : "password-mismatch")
+                    }`}
+                  >
+                    <span>
+                      <RiLockPasswordLine />
+                    </span>
+
+                    <input
+                      type="password"
+                      name="ConfirmPassword"
+                      placeholder="Confirm your password"
+                      value={formData.ConfirmPassword}
+                      onChange={handleChange}
+                      minLength={8}
+                      required
+                    />
+                  </div>
+
+                  {/* Password status */}
+                  {formData.ConfirmPassword && (
+                    <small
+                      className={
+                        formData.Password === formData.ConfirmPassword
+                          ? "password-success"
+                          : "password-error"
+                      }
+                    >
+                      {formData.Password === formData.ConfirmPassword
+                        ? "✓ Passwords match"
+                        : "✕ Passwords do not match"}
+                    </small>
+                  )}
                 </div>
 
                 {/* Button */}
