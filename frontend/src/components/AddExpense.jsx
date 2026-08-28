@@ -213,7 +213,7 @@ const AddExpense = () => {
     }
 
     try {
-      const response = await fetch("https://your-django-backend.onrender.com/api/add_expense/", {
+      const response = await fetch(`https://expense-tracker-0wwb.onrender.com/api/add_expense/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

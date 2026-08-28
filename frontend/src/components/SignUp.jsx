@@ -46,7 +46,7 @@ const SignUp = () => {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/api/signup/",
+        `https://expense-tracker-0wwb.onrender.com/api/signup/`,
         {
           method: "POST",
           headers: {

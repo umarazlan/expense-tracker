@@ -34,7 +34,7 @@ const ExpenseReport = () => {
 
     try {
       const response = await fetch(
-        `https://your-django-backend.onrender.com/api/report_expense/${userId}/?from=${fromDate}&to=${toDate}`
+        `https://expense-tracker-0wwb.onrender.com/api/report_expense/${userId}/?from=${fromDate}&to=${toDate}`
       );
 
       const data = await response.json();

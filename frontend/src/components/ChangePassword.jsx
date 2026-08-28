@@ -196,7 +196,7 @@ const ChangePassword = () => {
     console.log("Sending:", formData);
 
     try {
-      const response = await fetch(`https://your-django-backend.onrender.com/api/change_password/${userId}/`, {
+      const response = await fetch(`https://expense-tracker-0wwb.onrender.com/api/change_password/${userId}/`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

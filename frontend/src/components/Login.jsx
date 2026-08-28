@@ -30,7 +30,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("https://your-django-backend.onrender.com/api/login/", {
+      const response = await fetch(`https://expense-tracker-0wwb.onrender.com/api/login/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

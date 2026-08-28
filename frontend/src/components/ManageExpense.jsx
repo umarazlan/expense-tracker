@@ -490,7 +490,7 @@ const ManageExpense = () => {
   const fetchExpenses = async (userId) => {
     try {
       const response = await fetch(
-        `https://your-django-backend.onrender.com/api/manage_expense/${userId}`
+        `https://expense-tracker-0wwb.onrender.com/api/manage_expense/${userId}`
       );
       const data = await response.json();
       setExpenses(data);
@@ -501,7 +501,7 @@ const ManageExpense = () => {
 
   const handleUpdate = async () => {
     try {
-      const response = await fetch(`https://your-django-backend.onrender.com/api/update_expense/${editExpanse.id}/`, {
+      const response = await fetch(`https://expense-tracker-0wwb.onrender.com/api/update_expense/${editExpanse.id}/`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
