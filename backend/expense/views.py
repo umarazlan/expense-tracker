@@ -110,13 +110,38 @@ def delete_expense(request, expense_id):
 @csrf_exempt
 def report_expense(request, user_id):
     if request.method == 'GET':
-        from_date = request.GET.get('from')
-        to_date = request.GET.get('to')
-        expenses = Expense.objects.filter(UserId=user_id,ExpenseDate__range=[from_date,to_date])
-        expense_list = list(expenses.values())
-        agg = expenses.aggregate(Sum('ExpenseCost')) #{"ExpenseCost__sum":4353}
-        total = agg['ExpenseCost__sum'] or 0
-        return JsonResponse({"expenses":expense_list,'total':total})
+        try:
+            from_date = request.GET.get('from')
+            to_date = request.GET.get('to')
+
+            expenses = Expense.objects.filter(
+                UserId=user_id,
+                ExpenseDate__range=[from_date, to_date]
+            )
+
+            expense_list = list(expenses.values())
+
+            agg = expenses.aggregate(
+                total=Sum('ExpenseCost')
+            )
+
+            total = agg['total'] or 0
+
+            return JsonResponse({
+                "expenses": expense_list,
+                "total": total
+            })
+
+        except Exception as e:
+            print("REPORT ERROR:", e)
+            return JsonResponse({
+                "message": str(e)
+            }, status=500)
+
+    return JsonResponse(
+        {'message': 'Only GET method is allowed'},
+        status=405
+    )
     
 @csrf_exempt
 def change_password(request,user_id):
