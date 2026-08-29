@@ -527,7 +527,7 @@ const ManageExpense = () => {
   const handleDelete = async (expenseId) => {
     if (window.confirm('Are You Sure You Want to Delete This Expense!')) {
       try {
-        const response = await fetch(`https://your-django-backend.onrender.com/api/delete_expense/${expenseId}/`, {
+        const response = await fetch(`https://expense-tracker-0wwb.onrender.com/api/delete_expense/${expenseId}/`, {
           method: "DELETE",
         });
         
